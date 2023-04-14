@@ -35,7 +35,7 @@
         <a href="daftar.php"><button type="button" class="btn-daftar">DAFTAR</button></a><br>
         <br>
         <br>
-        <a href="#" class="petugas py-4">Login Sebagai Petugas</a>
+        <a href="loginPetugas.php" class="petugas py-4">Login Sebagai Petugas</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
