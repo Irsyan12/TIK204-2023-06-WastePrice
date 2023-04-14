@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $query);
 
 if ($result) {
     // Jika berhasil, maka tampilkan pesan sukses dan redirect ke halaman login
-    $_SESSION['daftar_success'] = ' Anda sudah berhasil mendaftar akun';
+    $_SESSION['daftar_berhasil'] = ' Anda sudah berhasil mendaftar akun, <strong>Silahkan Login</strong>';
     header('Location: ../login.php');
 } else {
     // Jika gagal, maka tampilkan pesan error
