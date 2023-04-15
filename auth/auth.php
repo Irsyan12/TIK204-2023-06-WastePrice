@@ -4,6 +4,8 @@ session_start();
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$password = md5($password);
+
 
 
 $query = mysqli_query($conn, "SELECT * from tb_masyarakat where username = '$username' and password = '$password' ");

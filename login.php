@@ -100,15 +100,21 @@ session_start();
                     </div>
 
                 </div>
-
-
-
-                <div class="col-sm-12 pt-1 regist">
-                    <p>Belum Punya Akun? <a href="daftar.php">Daftar Disini</a></p>
+                <div class="ingat-saya">
+                    <label>
+                        <input type="checkbox" name="ingat_saya">
+                        Ingat Saya
+                    </label>
                 </div>
 
 
+
+
+
                 <button type="submit" class="btn-submit m-5"> Submit</button>
+                <div class="col-sm-12 pt-1 regist mt-5 text-center">
+                    <p>Belum Punya Akun? <a href="daftar.php">Daftar Disini</a></p>
+                </div>
 
             </form>
 
