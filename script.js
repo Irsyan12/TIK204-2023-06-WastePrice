@@ -1,27 +1,11 @@
-function showPassword() {
-    const togglePassword = document
-        .querySelector('#togglePassword');
+function validateForm() {
+    var password = document.forms["form_daftar"]["password"].value;
+    var confirm_password = document.forms["form_daftar"]["confirm_password"].value;
 
-    const password = document.querySelector('#password');
-
-    togglePassword.addEventListener('click', () => {
-
-        // Toggle the type attribute using
-        // getAttribure() method
-        const type = password
-            .getAttribute('type') === 'password' ?
-            'text' : 'password';
-
-        password.setAttribute('type', type);
-
-        // Toggle the eye and bi-eye icon
-        this.classList.toggle('bi-eye');
-    });
-
+    if (password != confirm_password) {
+        const passwordAlert = document.getElementById('password-allert');
+        passwordAlert.classList.remove('d-none');
+        // alert("Konfirmasi password tidak sama. Silakan coba lagi.");
+        return false;
+    }
 }
-
-
-
-
-
-
