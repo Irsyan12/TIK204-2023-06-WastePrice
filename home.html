@@ -15,6 +15,22 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        @media only screen and (max-width: 767px) {
+            body {
+                overflow-y: hidden;
+            }
+
+            .sampah-saya {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .card-img {
+                max-width: 100px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -28,8 +44,6 @@
                 <i class="bi bi-bell btn" style="font-size: 23px;"></i>
             </div>
         </div>
-
-
     </nav>
 
 
@@ -39,14 +53,14 @@
         <hr>
     </div>
 
-    <div class="container ">
-        <div class="row row-cols-1 row-cols-md-2">
-            <div class="col mb-4">
+    <div class="container">
+        <div class="d-flex flex-column">
+            <div class="col mb-4 mx-4">
                 <div class="card">
                     <h5 class="card-title m-3">Sampah Saya</h5>
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300" draggable="false"
+                    <div class="d-flex flex-row sampah-saya">
+                        <div class="col-md-auto">
+                            <img src="asset/kardus.jpg" width="10" draggable="false"
                                 class="card-img mb-3 ms-3 img-fluid" alt="...">
                         </div>
                         <div class="col-md-8">
@@ -62,29 +76,38 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 text-center">
-                <div class="card-deck ">
-                    <div class="card h-50 mx-5 my-5 text-center w-25">
-                        <div class="card-body">
-                            <i class="bi bi-card-checklist btn-logo"></i> <br>
-                            Transaksi Saya
-                        </div>
-                    </div>
-                    <div class="card h-50 mx-5 my-5 text-center w-25">
-                        <div class="card-body">
 
-                            <i class="bi bi-currency-dollar btn-logo"></i> <br>
-                            Transaksi Saya
-                        </div>
+            <div class="d-flex flex-row text-center mx-4">
+                <div class="card h-100 mx-4 my-2 text-center w-50">
+                    <div class="card-body h-100 d-flex flex-column justify-content-center">
+                        <i class="bi bi-card-checklist btn-logo"></i> <br>
+                        Transaksi Saya
+                    </div>
+                </div>
+                <div class="card h-100 mx-4 my-2 text-center w-50">
+                    <div class="card-body h-100 d-flex flex-column justify-content-center">
+                        <i class="bi bi-currency-dollar btn-logo"></i> <br>
+                        Harga Sampah
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
 
-
+    <nav class="navbar navbar-expand navbar-dark bg-utama fixed-bottom" style="background-color: #0A0A33;">
+        <ul class="navbar-nav nav-justified w-100 d-flex align-items-center">
+            <li class="nav-item">
+                <a href="#" class="nav-link mt-2"><i class="bi bi-house-door" style="font-size: 20px;"></i></a>
+            </li>
+            <li class="nav-item jual-sampah">
+                <a href="#" class="nav-link"><i class="bi bi-cart" style="font-size: 20px;"></i><br>Jual Sampah</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link mt-2"><i class="bi bi-person" style="font-size: 20px;"></i></a>
+            </li>
+        </ul>
+    </nav>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
