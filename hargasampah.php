@@ -1,5 +1,10 @@
 <?php
 include 'homeheader.php';
+include 'auth/koneksi.php';
+// Select data from table
+$sql = "SELECT kategori_sampah, jenis_sampah, keterangan, harga_sampah FROM tb_sampah";
+$result = mysqli_query($conn, $sql);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,8 +23,8 @@ include 'homeheader.php';
         <div class="align-items-center">
             <form id="searchTask">
                 <div class="col-auto mb-3">
-                    <label for="inputSearch" class="form-label">Cari Nama Tugas</label>
-                    <input type="text" id="inputSearch" class="form-control" placeholder="Masukkan Nama Tugas">
+                    <label for="inputSearch" class="form-label">Cari Sampah</label>
+                    <input type="text" id="inputSearch" class="form-control" placeholder="Masukkan Nama Sampah">
                 </div>
             </form>
         </div>
@@ -33,13 +38,10 @@ include 'homeheader.php';
                 </tr>
             </thead>
             <tbody>
-                <!-- Loop through database query results and output table rows -->
-                <?php
-                include 'auth/koneksi.php';
-                // Select data from table
-                $sql = "SELECT kategori_sampah, jenis_sampah, keterangan, harga_sampah FROM tb_sampah";
-                $result = mysqli_query($conn, $sql);
 
+                <!-- Loop through database query results and output table rows -->
+
+                <?php
                 // Output table rows
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -75,12 +77,21 @@ include 'homeheader.php';
                 const harga = row.querySelector('.harga').textContent.toLowerCase();
 
                 if (kategori.indexOf(searchString) !== -1 || jenis.indexOf(searchString) !== -1 || keterangan.indexOf(searchString) !== -1 || harga.indexOf(searchString) !== -1) {
-                    row.style.display = '';
+                    row.classList.remove('d-none');
+                    foundRows = true;
                 } else {
-                    row.style.display = 'none';
+                    row.classList.add('d-none');
                 }
             });
+
+            const noDataMessage = document.getElementById('noDataMessage');
+            if (foundRows) {
+                noDataMessage.classList.add('d-none');
+            } else {
+                noDataMessage.classList.remove('d-none');
+            }
         });
+
 
     </script>
     <script src="script.js"></script>
