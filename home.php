@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['session_username'])) {
+    header('location:login.php');
+    exit();
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -49,7 +58,9 @@
 
     <div class="container mt-5 pt-5">
 
-        <h1> <img src="asset/profile.svg" width="48.81"> Hai Ilham</h1>
+        <h1> <img src="asset/profile.svg" width="48.81"> Hai
+            <?php echo ucfirst($_SESSION['session_username']); ?>
+        </h1>
         <hr>
     </div>
 
@@ -84,12 +95,12 @@
                         Transaksi Saya
                     </div>
                 </div>
-                <div class="card h-100 mx-4 my-2 text-center w-50">
+                <a href="hargasampah.php" class="card h-100 mx-4 my-2 text-center w-50 text-decoration-none text-dark">
                     <div class="card-body h-100 d-flex flex-column justify-content-center">
                         <i class="bi bi-currency-dollar btn-logo"></i> <br>
                         Harga Sampah
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -104,7 +115,7 @@
                 <a href="#" class="nav-link"><i class="bi bi-cart" style="font-size: 20px;"></i><br>Jual Sampah</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link mt-2"><i class="bi bi-person" style="font-size: 20px;"></i></a>
+                <a href="profil.html" class="nav-link mt-2"><i class="bi bi-person" style="font-size: 20px;"></i></a>
             </li>
         </ul>
     </nav>
