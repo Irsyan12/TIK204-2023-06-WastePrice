@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container d-flex">
-            <a class="navbar-brand" href="index.php" onclick="location.reload();">
+            <a class="navbar-brand" href="home.php">
                 <img src="asset/Logo.svg" alt="Waste Price" draggable="false" width="48.81" height="41">
                 Waste Price
             </a>
