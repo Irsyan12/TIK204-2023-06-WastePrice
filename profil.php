@@ -3,10 +3,10 @@ include 'homeheader.php'
     ?>
 <div class="container mt-5 pt-5">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
             <img src="https://via.placeholder.com/150" alt="Foto Profil" class="img-fluid rounded-circle mb-3">
             <h4>Nama Pengguna</h4>
-            <a href="#" class="btn btn-primary">Ubah Profil</a>
+            <a href="ubahprofil.php" class="btn btn-primary">Ubah Profil</a>
         </div>
         <div class="col-md-8">
             <h2>Bantuan</h2>
