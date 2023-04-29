@@ -19,11 +19,9 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     $query = "INSERT INTO tb_masyarakat (id_masyarakat, username, password, no_telepon) 
           VALUES ('', '$username', '$password', '$no_telepon')";
-
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-
         // Jika berhasil, maka tampilkan pesan sukses dan redirect ke halaman login
         $_SESSION['daftar_berhasil'] = 'Anda sudah berhasil mendaftar akun, <strong>Silahkan Login</strong>';
         header('Location: ../login.php');
