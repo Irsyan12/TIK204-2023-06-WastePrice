@@ -1,11 +1,14 @@
 <?php
-include 'homeheader.php'
-    ?>
+include 'homeheader.php';
+session_start();
+?>
 <div class="container mt-5 pt-5">
     <div class="row">
         <div class="col-md-4 text-center">
             <img src="https://via.placeholder.com/150" alt="Foto Profil" class="img-fluid rounded-circle mb-3">
-            <h4>Nama Pengguna</h4>
+            <h4>
+                <?php echo ucfirst($_SESSION['session_username']); ?>
+            </h4>
             <a href="ubahprofil.php" class="btn btn-primary">Ubah Profil</a>
         </div>
         <div class="col-md-8">
@@ -25,7 +28,6 @@ include 'homeheader.php'
         </div>
     </div>
 </div>
-<!-- Load library jQuery and Bootstrap JavaScript -->
 <script src="alert.js"></script>
 <script src="alert/sweetalert2.all.min.js"></script>
 
