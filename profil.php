@@ -22,7 +22,7 @@ if (!isset($_SESSION['session_username'])) {
             <a href="ubahprofil" class="btn mt-3" draggable="false"><i class="bi bi-key"></i> Ubah
                 Profil</a>
 
-            <a href="#" class=" btn mt-2" draggable="false"><i class="bi bi-question-circle"></i> Bantuan</a>
+            <a href="bantuan" class=" btn mt-2" draggable="false"><i class="bi bi-question-circle"></i> Bantuan</a>
 
             <a href="#" class="btn mt-2" draggable="false">Syarat dan Ketentuan</a>
 
