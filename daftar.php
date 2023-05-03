@@ -11,7 +11,7 @@ include 'header.php';
 
     </div>
     <div class="d-flex justify-content-center">
-        <form name="form_daftar" method="POST" action="auth/daftar_proses.php" onsubmit="return validateForm()">
+        <form name="form_daftar" method="POST" action="auth/daftar_proses.php">
             <div class="form-group my-3">
                 <label for="username" class="label-username">Nama Pengguna</label>
                 <input type="text" class="form-control username" id="username"
@@ -63,7 +63,7 @@ include 'header.php';
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
 
-<script src="script.js">
+<script src="js/script.js">
 </script>
 <script>
     function validateForm() {
