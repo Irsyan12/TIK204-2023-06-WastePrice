@@ -115,7 +115,7 @@ if (!isset($_SESSION['session_username'])) {
                 <a href="#" class="nav-link"><i class="bi bi-cart" style="font-size: 20px;"></i><br>Jual Sampah</a>
             </li>
             <li class="nav-item">
-                <a href="profil.html" class="nav-link mt-2"><i class="bi bi-person" style="font-size: 20px;"></i></a>
+                <a href="profil.php" class="nav-link mt-2"><i class="bi bi-person" style="font-size: 20px;"></i></a>
             </li>
         </ul>
     </nav>

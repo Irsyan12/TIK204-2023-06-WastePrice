@@ -28,13 +28,13 @@ $result = mysqli_query($conn, $sql);
                 </div>
             </form>
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Kategori Sampah</th>
                     <th>Jenis Sampah</th>
                     <th>Keterangan</th>
-                    <th>Harga Sampah</th>
+                    <th>Harga Sampah / kg</th>
                 </tr>
             </thead>
             <tbody>
