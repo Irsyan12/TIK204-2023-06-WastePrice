@@ -24,7 +24,7 @@ if (!isset($_SESSION['session_username'])) {
 
             <a href="bantuan" class=" btn mt-2" draggable="false"><i class="bi bi-question-circle"></i> Bantuan</a>
 
-            <a href="#" class="btn mt-2" draggable="false">Syarat dan Ketentuan</a>
+            <a href="sk" class="btn mt-2" draggable="false">Syarat dan Ketentuan</a>
 
             <a href="#" class="btn btn-danger text-white mt-5" onclick="konfirmasiLogout()" draggable="false">Log
                 Out</a>
