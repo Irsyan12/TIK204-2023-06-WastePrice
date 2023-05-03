@@ -44,7 +44,6 @@ if (!isset($_SESSION['session_username'])) {
             'Berhasil!',
             'Profil anda berhasil diperbarui',
             'success'
-        )
         <?php
         unset($_SESSION['update_berhasil']);
     endif;
