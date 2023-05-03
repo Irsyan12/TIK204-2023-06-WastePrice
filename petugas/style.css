@@ -1,0 +1,50 @@
+body {
+    background-color: #D9D9D9;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.btn-masuk {
+    background-color: #0A0A33;
+    color: white;
+    margin-bottom: 13px;
+    border-radius: 23px;
+    width: 225px;
+    height: 47px;
+    left: 69px;
+    top: 566px;
+    border: 0;
+
+}
+
+.btn-daftar {
+    width: 225px;
+    height: 47px;
+    left: 69px;
+
+    top: 626px;
+    color: white;
+    background-color: #7D7D7D;
+    border-radius: 23px;
+    border: 0;
+}
+
+.petugas,
+.tentang {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn-submit {
+    color: white;
+    width: 135px;
+    height: 38px;
+    left: 112px;
+    top: 569px;
+    background: #0A0A33;
+    border-radius: 23px;
+}
