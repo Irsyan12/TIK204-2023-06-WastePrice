@@ -35,7 +35,7 @@ include 'header.php';
 
             <div class="form-group mb-3">
                 <div class="pw">
-                    <label for="password" class="label-confirm_password">Ulangi Kata Sandi</label>
+                    <label for="confirm_password" class="label-confirm_password">Ulangi Kata Sandi</label>
                     <input type="password" class="form-control confirm_password" id="confirm_password"
                         name="confirm_password" required />
                     <p class="text-danger d-none mt-1" id="password-allert">Kata Sandi Tidak Sama</p>
