@@ -50,7 +50,7 @@ $result = mysqli_query($conn, $sql);
                         echo "<td class='item_sampah kategori'>" . $row["kategori_sampah"] . "</td>";
                         echo "<td class='item_sampah jenis'>" . $row["jenis_sampah"] . "</td>";
                         echo "<td class='item_sampah keterangan'>" . $row["keterangan"] . "</td>";
-                        echo "<td class='harga'>" . $row["harga_sampah"] . "</td>";
+                        echo "<td class='harga'>" . number_format($row["harga_sampah"], 0, ',', '.') . "</td>";
                         echo "</tr>";
                     }
                 }

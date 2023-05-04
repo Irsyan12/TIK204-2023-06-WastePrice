@@ -81,7 +81,7 @@ if (isset($_POST['add_to_cart'])) {
                                         <?php echo "Rp " . number_format($row["harga_sampah"], 0, ',', '.') . "/ kg" ?>
                                     </h6>
                                 </div>
-                                <form>
+                                <form method="POST">
                                     <div class="form-group">
                                         <label for="jumlah">Jumlah (kg):</label>
                                         <input type="number" class="form-control form-jumlah" name="jumlah" min="0" value="0"
