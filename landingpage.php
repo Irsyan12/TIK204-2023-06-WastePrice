@@ -7,11 +7,11 @@ include 'header.php'
 </div>
 <div class="tombol text-center">
 
-    <a href="login.php"><button type="button" class="btn-masuk">MASUK</button></a><br>
-    <a href="daftar.php"><button type="button" class="btn-daftar">DAFTAR</button></a><br>
+    <a href="login"><button type="button" class="btn-masuk">MASUK</button></a><br>
+    <a href="daftar"><button type="button" class="btn-daftar">DAFTAR</button></a><br>
     <br>
     <br>
-    <a href="loginPetugas.php" class="petugas py-4">Login Sebagai Petugas</a>
+    <a href="petugas/login" class="petugas py-4">Login Sebagai Petugas</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
