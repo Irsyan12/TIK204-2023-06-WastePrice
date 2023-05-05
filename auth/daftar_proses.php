@@ -18,7 +18,7 @@ if (mysqli_num_rows($result) > 0) {
 
 } else {
     $query = "INSERT INTO tb_masyarakat (id_masyarakat, username, password, no_telepon) 
-          VALUES ('', 'ucfirst($username)', '$password', '$no_telepon')";
+          VALUES ('', '$username', '$password', '$no_telepon')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
