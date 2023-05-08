@@ -15,35 +15,12 @@ if (isset($_COOKIE['cookie_username']) && isset($_COOKIE['cookie_password'])) {
 
 }
 
-// if (isset($_SESSION['session_username'])) {
-//     header('location: home.php');
-//     exit();
-// }
-
-
 include 'header.php';
 
 ?>
 
-
 <div class="container">
 
-
-    <?php if (isset($_SESSION['login_gagal'])):
-        ?>
-        <div class="alert alert-danger mt-4 alert-dismissible fade show" role="alert">
-
-            <?php
-            echo $_SESSION['login_gagal'];
-            ?>
-
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-
-        <?php
-        session_destroy();
-    endif;
-    ?>
     <?php if (isset($_SESSION['formkosong'])):
         ?>
         <div class="alert alert-danger mt-4 alert-dismissible fade show" role="alert">
@@ -59,21 +36,7 @@ include 'header.php';
         session_destroy();
     endif;
     ?>
-    <?php if (isset($_SESSION['daftar_berhasil'])):
-        ?>
-        <div class="alert alert-success mt-4 alert-dismissible fade show" role="alert">
 
-            <?php
-            echo $_SESSION['daftar_berhasil'];
-            ?>
-
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-
-        <?php
-        session_destroy();
-    endif;
-    ?>
     <div class="text-center">
         <img src="asset/Logo.svg" draggable="false" width="105" class="py-5">
         <h2>Masuk</h2>
@@ -136,6 +99,26 @@ include 'header.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
+<script src="alert/sweetalert2.all.min.js"></script>
+<script src="js/alert.js"></script>
+<script>
+    <?php if (isset($_SESSION['login_gagal'])):
+        ?>
+        passwordSalah();
+        session_destroy();
+        <?php
+        session_destroy();
+    endif;
+    ?>
+
+    <?php if (isset($_SESSION['daftar_berhasil'])):
+        ?>
+        daftarBerhasil();
+        <?php
+        session_destroy();
+    endif;
+    ?>
+</script>
 </body>
 
 </html>
