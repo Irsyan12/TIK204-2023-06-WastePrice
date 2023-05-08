@@ -11,7 +11,9 @@ include 'header.php';
 
     </div>
     <div class="d-flex justify-content-center">
-        <form name="form_daftar" method="POST" action="auth/daftar_proses.php" onsubmit="return validateForm()">
+
+        <form name="form_daftar" method="POST" action="auth/daftar_proses.php" onsubmit="validateForm()">
+
             <div class="form-group my-3">
                 <label for="username" class="label-username">Nama Pengguna</label>
                 <input type="text" class="form-control username" id="username"
@@ -35,7 +37,7 @@ include 'header.php';
 
             <div class="form-group mb-3">
                 <div class="pw">
-                    <label for="password" class="label-confirm_password">Ulangi Kata Sandi</label>
+                    <label for="confirm_password" class="label-confirm_password">Ulangi Kata Sandi</label>
                     <input type="password" class="form-control confirm_password" id="confirm_password"
                         name="confirm_password" required />
                     <p class="text-danger d-none mt-1" id="password-allert">Kata Sandi Tidak Sama</p>
@@ -46,7 +48,7 @@ include 'header.php';
             <div class="syarat">
                 <label>
                     <input type="checkbox" name="agree" required>
-                    Saya setuju dengan <a href="#">syarat dan ketentuan</a>.
+                    Saya setuju dengan <a href="sk">syarat dan ketentuan</a>.
                 </label>
             </div>
             <button type="submit" class="btn-submit m-5">Submit</button>
@@ -63,7 +65,7 @@ include 'header.php';
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
 
-<script src="script.js">
+<script src="js/script.js">
 </script>
 <script>
     function validateForm() {
@@ -73,6 +75,7 @@ include 'header.php';
         if (password != confirm_password) {
             const passwordAlert = document.getElementById('password-allert');
             passwordAlert.classList.remove('d-none');
+            event.preventDefault();
             return false;
         }
     }
