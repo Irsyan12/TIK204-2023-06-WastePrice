@@ -15,16 +15,9 @@ if (isset($_COOKIE['cookie_username']) && isset($_COOKIE['cookie_password'])) {
 
 }
 
-// if (isset($_SESSION['session_username'])) {
-//     header('location: home.php');
-//     exit();
-// }
-
-
 include 'header.php';
 
 ?>
-
 
 <div class="container">
 
@@ -107,7 +100,7 @@ include 'header.php';
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
 <script src="alert/sweetalert2.all.min.js"></script>
-<script src="alert.js"></script>
+<script src="js/alert.js"></script>
 <script>
     <?php if (isset($_SESSION['login_gagal'])):
         ?>
