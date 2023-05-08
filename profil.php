@@ -48,11 +48,15 @@ if (!isset($_SESSION['session_username'])) {
 
             <a href="sk" class="btn mt-2" draggable="false">Syarat dan Ketentuan</a>
 
+
+<!-- Tombol Logout -->
             <a href="#" class="btn btn-danger text-white mt-5" onclick="konfirmasiLogout()" draggable="false">Log
                 Out</a>
         </div>
     </div>
 </div>
+
+<!-- Menghubungkan JavaScript -->
 <script src="js/alert.js"></script>
 <script src="alert/sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
