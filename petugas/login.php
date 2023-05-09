@@ -4,59 +4,12 @@ include 'header.php';
 ?>
 
 <div class="container">
-
-
-    <?php if (isset($_SESSION['login_gagal'])):
-        ?>
-        <div class="alert alert-danger mt-4 alert-dismissible fade show" role="alert">
-
-            <?php
-            echo $_SESSION['login_gagal'];
-            ?>
-
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-
-        <?php
-        session_destroy();
-    endif;
-    ?>
-    <?php if (isset($_SESSION['daftar_berhasil'])):
-        ?>
-        <div class="alert alert-success mt-4 alert-dismissible fade show" role="alert">
-
-            <?php
-            echo $_SESSION['daftar_berhasil'];
-            ?>
-
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-
-        <?php
-        session_destroy();
-    endif;
-    ?>
     <div class="text-center">
         <img src="../asset/Logo.svg" draggable="false" width="105" class="py-5">
         <h2>Masuk Petugas</h2>
 
     </div>
     <div class="d-flex justify-content-center">
-        <?php if (isset($_SESSION['eksekusi'])):
-            ?>
-            <div class="alert alert-success mt-4 alert-dismissible fade show" role="alert">
-
-                <?php
-                echo $_SESSION['eksekusi'];
-                ?>
-
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-
-            <?php
-            session_destroy();
-        endif;
-        ?>
         <form action="auth/auth.php" method="post">
             <div class="form-group my-3">
                 <label for="username" class="label-username">Nama Pengguna:</label>

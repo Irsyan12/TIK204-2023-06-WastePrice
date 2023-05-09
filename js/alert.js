@@ -72,3 +72,11 @@ function ubahProfil() {
     })
 }
 
+function jualSampahBerhasil() {
+    Swal.fire(
+        'Berhasil!',
+        'Silahkan tunggu konfirmasi oleh petugas dahulu.',
+        'success'
+    )
+}
+

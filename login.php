@@ -82,7 +82,7 @@ include 'header.php';
 
             <button type="submit" class="btn-submit m-5"> Submit</button>
             <div class="col-sm-12 pt-1 regist mt-5 text-center">
-                <p>Belum Punya Akun? <a href="daftar.php">Daftar Disini</a></p>
+                <p>Belum Punya Akun? <a href="daftar">Daftar Disini</a></p>
             </div>
 
         </form>

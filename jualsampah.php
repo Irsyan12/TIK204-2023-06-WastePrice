@@ -3,7 +3,7 @@ session_start();
 include 'homeheader.php';
 include 'auth/koneksi.php';
 if (!isset($_SESSION['session_username'])) {
-    header('location:login.php');
+    header('location:login');
     exit();
 }
 // Select data from table
@@ -50,7 +50,7 @@ if (isset($_POST['add_to_cart'])) {
 
 <body>
     <div class="container mt-5 pt-4 mb-5">
-        <h1 class="mb-3">Jual Sampah</h1>
+        <h1 class="mb-3 mt-1">Jual Sampah</h1>
         <div class="align-items-center">
             <form id="searchTask">
                 <div class="col-auto mb-4">
@@ -64,7 +64,7 @@ if (isset($_POST['add_to_cart'])) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <div class="col card-sampah position-relative">
+                    <div class="col card-sampah position-relative" data-id="<?php echo $row["id_sampah"] ?>">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h5 class="card-title jenis">
@@ -85,7 +85,7 @@ if (isset($_POST['add_to_cart'])) {
                                     <div class="form-group">
                                         <label for="jumlah">Jumlah (kg):</label>
                                         <input type="number" class="form-control form-jumlah" name="jumlah" min="0" value="0"
-                                            id="jumlah<?php echo $row["id_sampah"]; ?>">
+                                            id="jumlah<?php echo $row["id_sampah"]; ?>" style="background-color: white;">
                                     </div>
                                     <div class="form-group text-end">
                                         <button type="button" class="btn btn-danger mt-2 btn-decrease"
@@ -111,16 +111,19 @@ if (isset($_POST['add_to_cart'])) {
             ?>
         </div>
         <div id="noDataMessage" class="mt-3 text-center d-none">Sampah tidak ditemukan</div>
-        <div class="card cart fixed-bottom p-2 d-none" id="cart">
-            <div class="row align-items-center">
-                <div class="col mx-3">
-                    <p class="m-0">Total Harga</p>
-                    <h5 class="m-0" id="totalHarga">Rp 0</h5>
+        <div class="card cart fixed-bottom p-2 d-none col-lg-6 col-md-9 col-sm-10 mx-auto" id="cart">
+            <form action="checkout" method="POST" id="cartForm">
+                <input type="hidden" name="cart" id="cartInput">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <p class="m-0 ms-3">Total Harga</p>
+                        <h5 class="m-0 ms-3" id="totalHarga">Rp 0</h5>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary btn-lanjut me-3">Lanjut</button>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary mx-3">Lanjut</a>
-                </div>
-            </div>
+            </form>
         </div>
         <script src="js/cart.js"></script>
         <script src="js/carisampah.js"></script>

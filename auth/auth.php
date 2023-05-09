@@ -24,6 +24,9 @@ if ($username == "" or $password == "") {
             $data = mysqli_fetch_assoc($query);
             $no_telp = $data['no_telepon'];
 
+            // buat session id masyarakatnya
+            $_SESSION['session_id_masyarakat'] = $data['id_masyarakat'];
+
             // buat session nomor telepon
             $_SESSION['session_no_telepon'] = $no_telp;
 
