@@ -3,7 +3,7 @@ session_start();
 include 'homeheader.php';
 include 'auth/koneksi.php';
 if (!isset($_SESSION['session_username'])) {
-    header('location:login.php');
+    header('location:login');
     exit();
 }
 // Select data from table
@@ -19,8 +19,8 @@ $result = mysqli_query($conn, $sql);
 </head>
 
 <body>
-    <div class="container mt-3 mb-5">
-        <h1 class="mb-3">Harga Sampah</h1>
+    <div class="container mt-5 mb-5">
+        <h1 class="mb-3 mt-5 my-5 pt-4">Harga Sampah</h1>
         <div class="align-items-center">
             <form id="searchTask">
                 <div class="col-auto mb-3">

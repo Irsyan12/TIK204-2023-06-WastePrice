@@ -2,12 +2,34 @@
 include 'homeheader.php';
 session_start();
 if (!isset($_SESSION['session_username'])) {
-    header('location:login.php');
+    header('location:login');
     exit();
 }
 ?>
 <div class="container mt-5 pt-5">
     <div class="d-flex flex-column align-items-center">
+        <?php if (isset($_SESSION['kata_sandi_lama_salah'])): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-triangle-fill"></i> <strong>Gagal</strong>
+                <?php echo $_SESSION['kata_sandi_lama_salah'] ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php
+            unset($_SESSION['kata_sandi_lama_salah']);
+        endif;
+        unset($_SESSION['kata_sandi_lama_salah']);
+        ?>
+        <?php if (isset($_SESSION['update_berhasil'])): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle"></i> <strong>Berhasil</strong>
+                <?php echo $_SESSION['update_berhasil'] ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php
+            unset($_SESSION['update_berhasil']);
+        endif;
+        unset($_SESSION['kata_sandi_lama_salah']);
+        ?>
         <div class="text-center">
             <img src="https://via.placeholder.com/150" alt="Foto Profil" class="img-fluid rounded-circle mb-3">
             <h2>
@@ -33,22 +55,12 @@ if (!isset($_SESSION['session_username'])) {
 </div>
 <script src="js/alert.js"></script>
 <script src="alert/sweetalert2.all.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4Yf"></script>
-<script>
-    <?php if (isset($_SESSION['update_berhasil'])):
-        ?>
-        const passwordAlert = document.getElementById('password-allert');
-        passwordAlert.classList.remove('d-none');
-        Swal.fire(
-            'Berhasil!',
-            'Profil anda berhasil diperbarui',
-            'success'
-        <?php
-        unset($_SESSION['update_berhasil']);
-    endif;
-    ?>
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

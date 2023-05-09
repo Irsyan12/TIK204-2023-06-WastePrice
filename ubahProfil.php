@@ -2,7 +2,7 @@
 include 'homeheader.php';
 session_start();
 if (!isset($_SESSION['session_username'])) {
-  header('location:login.php');
+  header('location:login');
   exit();
 }
 ?>
@@ -14,7 +14,7 @@ if (!isset($_SESSION['session_username'])) {
       <div class="form-group my-1 pt-4">
         <label for="username" class="form-label">Username</label>
         <input type="text" class="form-control" id="username" name="username_baru"
-          value="<?php echo ucfirst($_SESSION['session_username']); ?>">
+          value="<?php echo $_SESSION['session_username']; ?>">
         <p class="text-danger mt-1 d-none" id="username-allert">username sudah digunakan</p>
       </div>
 
