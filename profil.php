@@ -48,11 +48,15 @@ if (!isset($_SESSION['session_username'])) {
 
             <a href="sk" class="btn mt-2" draggable="false">Syarat dan Ketentuan</a>
 
+
+<!-- Tombol Logout -->
             <a href="#" class="btn btn-danger text-white mt-5" onclick="konfirmasiLogout()" draggable="false">Log
                 Out</a>
         </div>
     </div>
 </div>
+
+<!-- Menghubungkan JavaScript -->
 <script src="js/alert.js"></script>
 <script src="alert/sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
@@ -61,6 +65,22 @@ if (!isset($_SESSION['session_username'])) {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
+
+<script>
+    <?php if (isset($_SESSION['update_berhasil'])):
+        ?>
+        const passwordAlert = document.getElementById('password-allert');
+        passwordAlert.classList.remove('d-none');
+        Swal.fire(
+            'Berhasil!',
+            'Profil anda berhasil diperbarui',
+            'success'
+        )
+        <?php
+        unset($_SESSION['update_berhasil']);
+    endif;
+    ?>
+</script>
 </body>
 
 </html>
