@@ -75,9 +75,8 @@ include 'header.php';
 
             </div>
             <div class="ingat-saya">
-                <label>
-                    <input id="login-remember" type="checkbox" name="ingatsaya" value="1"> Ingat Saya
-                </label>
+                <input id="login-remember" type="checkbox" name="ingatsaya" value="ingatsaya">
+                <label for="login-remember">Ingat Saya</label>
             </div>
 
             <button type="submit" class="btn-submit m-5"> Submit</button>

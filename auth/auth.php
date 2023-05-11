@@ -31,15 +31,10 @@ if ($username == "" or $password == "") {
             $_SESSION['session_no_telepon'] = $no_telp;
 
             if (isset($_POST['ingatsaya'])) {
-                $cookie_name = "cookie_username";
+                $cookie_username = "cookie_username";
                 $cookie_value = $username;
                 $cookie_time = time() + (60 * 60 * 24 * 30);
-                setcookie($cookie_name, $cookie_value, $cookie_time, "/");
-
-                // $cookie_name = "cookie_password";
-                // $cookie_value = $password;
-                // $cookie_time = time() + (60 * 60 * 24 * 30);
-                // setcookie($cookie_name, $cookie_value, $cookie_time, "/");
+                setcookie($cookie_username, $cookie_value, $cookie_time, "/");
             } else {
                 setcookie("cookie_username", "", time() - 3600, "/");
                 // setcookie("cookie_password", "", time() - 3600, "/");

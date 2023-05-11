@@ -23,7 +23,7 @@ function konfirmasiLogout() {
         confirmButtonColor: '#0A0A33',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Ya, Keluar!',
-        CancelButtonText: 'Batal',
+        CancelButtonText: 'Batal'
     }).then((result) => {
         if (result.isConfirmed) {
             var xhr = new XMLHttpRequest();
@@ -80,3 +80,10 @@ function jualSampahBerhasil() {
     )
 }
 
+function batalJualBerhasil() {
+    Swal.fire(
+        'Berhasil!',
+        'Penjualan anda dibatalkan',
+        'success'
+    )
+}
