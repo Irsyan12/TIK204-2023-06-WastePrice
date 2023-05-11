@@ -8,7 +8,7 @@
                     style="font-size: 20px;"></i><br>Laporan Transaksi</a>
         </li>
         <li class="nav-item">
-            <a href="auth/logout.php" class="nav-link mt-1"><i class="bi bi-person" style="font-size: 20px;"></i></a>
+            <a href="profil" class="nav-link mt-1"><i class="bi bi-person" style="font-size: 20px;"></i></a>
         </li>
     </ul>
 </nav>
