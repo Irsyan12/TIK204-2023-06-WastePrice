@@ -80,7 +80,7 @@ $result = mysqli_query($conn, $query);
                     </ul>
         
 
-                <form action="detailpenjualan" method="POST" class="d-flex flex-row-reverse text-decoration-none text-dark">
+                <form action="detailpengambilan" method="POST" class="d-flex flex-row-reverse text-decoration-none text-dark">
                     <input type="hidden" name="id_penjualan" value="' . $data["id"] . '">
                     <button type="submit" style="background: none; border: none;">Lihat Detail</button>
                 </form>
