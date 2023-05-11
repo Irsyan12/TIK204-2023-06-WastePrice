@@ -26,7 +26,7 @@
                 Waste Price
             </a>
             <div class="ms-auto">
-                <i class="bi bi-bell btn" style="font-size: 23px;"></i>
+                <a href="notifikasi"><i class="bi bi-bell btn" style="font-size: 23px;"></i></a>
             </div>
         </div>
     </nav>
