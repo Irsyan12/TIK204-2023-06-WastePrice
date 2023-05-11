@@ -4,7 +4,7 @@ include 'koneksi.php';
 
 $alamat = $_POST['alamat'];
 $deskripsi = $_POST['deskripsi'];
-$totalHarga = $_SESSION['totalHarga'] + 00;
+$totalHarga = $_SESSION['totalHarga'];
 $id_masyarakat = $_SESSION['session_id_masyarakat'];
 // ambil data dari session cart item
 $cartItems = $_SESSION['cartItems'];

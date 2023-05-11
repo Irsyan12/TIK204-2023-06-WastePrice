@@ -45,14 +45,16 @@ if (isset($_POST['cart'])) {
                             <?= number_format($item["subtotal"], 0, ',', '.') ?>
                         </td>
                     </tr>
-                    <?php $totalHarga += number_format($item["subtotal"], 0, ',', '.');
+                    <?php $totalHarga += $item["subtotal"];
                     $no++ ?>
                     <?php $_SESSION['totalHarga'] = $totalHarga;
                 endforeach; ?>
                 <tr>
                     <td colspan="4" class="text-end fw-bold">Total Pendapatan :</td>
                     <td>Rp.
-                        <?= $totalHarga ?>00
+                        <?=
+                            number_format($totalHarga, 0, ',', '.');
+                        ?>
                     </td>
                 </tr>
             </tbody>
@@ -84,15 +86,11 @@ if (isset($_POST['cart'])) {
         </div>
     </div>
     </form>
-
-
-    <?php
-    echo '<pre>';
-    print_r($_SESSION['cartItems']);
-    echo '</pre>';
-    ?>
-
 </div>
+
+<?php
+print_r(number_format($totalHarga, 0, ',', '.'));
+?>
 
 <!-- Bootstrap 5 JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"
