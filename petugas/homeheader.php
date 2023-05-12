@@ -25,8 +25,6 @@
                 <img src="../asset/Logo.svg" alt="Waste Price" draggable="false" width="48.81" height="41">
                 Waste Price
             </a>
-            <div class="ms-auto">
-                <i class="bi bi-bell btn" style="font-size: 23px;"></i>
-            </div>
+            
         </div>
     </nav>
