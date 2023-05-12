@@ -20,7 +20,6 @@ $last_id = $data_last_id['last_id'];
 $query_detail = "SELECT * FROM tb_penjualan WHERE id = '$last_id'";
 $result_detail = mysqli_query($conn, $query_detail);
 $data_detail = mysqli_fetch_assoc($result_detail);
-
 ?>
 
 <style>
@@ -65,7 +64,7 @@ $data_detail = mysqli_fetch_assoc($result_detail);
     <div class="container">
         <div class="d-flex flex-column">
             <div class="col mb-4 mx-4">
-                <div class="transaksisaya card mt-1">
+                <div class="transaksisaya card border-0 mt-1">
                     <div class="card-body">
                         <h5 class="fw-bold ms-3 mb-3">Sampah Saya</h5>
                         <?php if ($data_detail) { ?>
@@ -101,36 +100,16 @@ $data_detail = mysqli_fetch_assoc($result_detail);
 
                 </div>
             </div>
-            <!-- <div class="col mb-4 mx-4">
-                <div class="card">
-                    <h5 class="card-title m-3">Sampah Saya</h5>
-                    <div class="d-flex flex-row sampah-saya">
-                        <div class="col-md-auto">
-                            <img src="asset/kardus.jpg" width="10" draggable="false"
-                                class="card-img mb-3 ms-3 img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <ul>
-                                    <li>Jenis Sampah: Plastik</li>
-                                    <li>Berat Sampah: 5 kg</li>
-                                    <li>Status Penjemputan: Belum dijemput</li>
-                                    <li>Estimasi Penjemputan: 12 April 2023</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
             <div class="d-flex flex-row text-center mx-4">
-                <a href="transaksisaya" class="card h-100 mx-4 my-2 text-center w-50 text-decoration-none text-dark">
+                <a href="transaksisaya"
+                    class="card border-0 h-100 mx-4 my-2 text-center w-50 text-decoration-none text-dark">
                     <div class="card-body h-100 d-flex flex-column justify-content-center">
                         <i class="bi bi-card-checklist btn-logo"></i> <br>
                         Transaksi Saya
                     </div>
                 </a>
-                <a href="hargasampah" class="card h-100 mx-4 my-2 text-center w-50 text-decoration-none text-dark">
+                <a href="hargasampah"
+                    class="card border-0 h-100 mx-4 my-2 text-center w-50 text-decoration-none text-dark">
                     <div class="card-body h-100 d-flex flex-column justify-content-center">
                         <i class="bi bi-currency-dollar btn-logo"></i> <br>
                         Harga Sampah

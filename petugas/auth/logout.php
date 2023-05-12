@@ -1,9 +1,5 @@
 <?php
 session_start();
-$_SESSION['session_usernamepetugas'] = "";
-$_SESSION['session_passwordpetugas'] = "";
-$_SESSION['session_no_telepon_petugas'] = "";
-
 session_destroy();
 
 $cookie_name = "cookie_username_petugas";

@@ -65,7 +65,7 @@ if (isset($_POST['add_to_cart'])) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <div class="col card-sampah position-relative" data-id="<?php echo $row["id_sampah"] ?>">
-                        <div class="card h-100">
+                        <div class="card border-0 h-100">
                             <div class="card-body">
                                 <h5 class="card-title jenis">
                                     <?php echo ucfirst($row["jenis_sampah"]) ?>
@@ -111,7 +111,7 @@ if (isset($_POST['add_to_cart'])) {
             ?>
         </div>
         <div id="noDataMessage" class="mt-3 text-center d-none">Sampah tidak ditemukan</div>
-        <div class="card cart fixed-bottom p-2 d-none col-lg-6 col-md-9 col-sm-10 mx-auto" id="cart">
+        <div class="card border-0 cart fixed-bottom p-2 d-none col-lg-6 col-md-9 col-sm-10 mx-auto" id="cart">
             <form action="checkout" method="POST" id="cartForm">
                 <input type="hidden" name="cart" id="cartInput">
                 <div class="row align-items-center justify-content-between">
