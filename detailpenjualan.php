@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $query);
                 <?php } ?>
                 <?php
                 // Tampilkan total harga dari tb_penjualan
-                $query_penjualan = "SELECT total_harga FROM tb_penjualan WHERE id = '$id_penjualan'";
+                $query_penjualan = "SELECT * FROM tb_penjualan WHERE id = '$id_penjualan'";
                 $result_penjualan = mysqli_query($conn, $query_penjualan);
                 $data_penjualan = mysqli_fetch_assoc($result_penjualan);
                 if ($data_penjualan['total_harga'] == null) {
@@ -51,6 +51,36 @@ $result = mysqli_query($conn, $query);
                 </tr>
             </tbody>
         </table>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <h6>Alamat Penjemputan</h6>
+                    </td>
+                    <td>
+                        <?php echo $data_penjualan['alamat']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Deskripsi Sampah</h6>
+                    </td>
+                    <td>
+                        <?php echo $data_penjualan['deskripsi']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Status Penjualan</h6>
+                    </td>
+                    <td>
+                        <?php echo $data_penjualan['status_penjualan']; ?>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
         <div class="d-flex justify-content-center my-5 fixed-bottom">
             <button class="btn btn-danger btn-hapusjual px-5 py-3">Batalkan Penjualan</button>
         </div>

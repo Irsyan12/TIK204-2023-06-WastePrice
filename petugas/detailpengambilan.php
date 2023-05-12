@@ -1,36 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Pengambilan</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
-</head>
-<body>
+<?php
+include '../auth/koneksi.php';
+include 'homeheader.php';
 
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-header">
-            Detail Pengambilan
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Riwayat Pengambilan</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus fringilla purus, at cursus est finibus ac. Duis varius massa non ligula finibus, id semper neque tincidunt.</p>
-            <h5 class="card-title">Alamat Penjemputan</h5>
-            <p class="card-text">Jl. Contoh Alamat No. 123, Kota Contoh, Negara Contoh</p>
-            <h5 class="card-title">Deskripsi Sampah</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus fringilla purus, at cursus est finibus ac. Duis varius massa non ligula finibus, id semper neque tincidunt.</p>
-            <h5 class="card-title">Waktu Pengambilan</h5>
-            <p class="card-text">10 Mei 2023, Pukul 08.00 WIB</p>
-            <a href="#" class="btn btn-primary">Edit</a>
-            <a href="#" class="btn btn-success">Ambil Sekarang</a>
-          </div>
-        </div>
-      </div>
+
+
+$id_penjualan = $_POST['id_penjualan'];
+$query = "SELECT * FROM tb_penjualan_item WHERE penjualan_id = '$id_penjualan'";
+$result = mysqli_query($conn, $query);
+?>
+
+<div class="container mt-5 pt-5">
+  <h2 class="text-center">Detail Transaksi</h2>
+  <div class="transaksisaya">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Jenis Sampah</th>
+          <th>Jumlah</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php while ($data = mysqli_fetch_assoc($result)) { ?>
+          <tr>
+            <td>
+              <?php echo $data['jenis_sampah']; ?>
+            </td>
+            <td>
+              <?php echo $data['jumlah']; ?>
+            </td>
+            <td>
+              <?php echo 'Rp. ' . number_format($data['subtotal'], 0, ',', '.'); ?>
+            </td>
+          </tr>
+        <?php } ?>
+        <?php
+        // Tampilkan total harga dari tb_penjualan
+        $query_penjualan = "SELECT * FROM tb_penjualan WHERE id = '$id_penjualan'";
+        $result_penjualan = mysqli_query($conn, $query_penjualan);
+        $data_penjualan = mysqli_fetch_assoc($result_penjualan);
+        if ($data_penjualan['total_harga'] == null) {
+          header('location: daftarpengambilan');
+        }
+        ?>
+        <tr>
+          <td colspan="2" class="text-right font-weight-bold">Total Harga :</td>
+          <td>
+            <?php echo 'Rp. ' . number_format($data_penjualan['total_harga'], 0, ',', '.'); ?>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <h6>Alamat Penjemputan</h6>
+          </td>
+          <td>
+            <?php echo $data_penjualan['alamat']; ?>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h6>Deskripsi Sampah</h6>
+          </td>
+          <td>
+            <?php echo $data_penjualan['deskripsi']; ?>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h6>Status Penjualan</h6>
+          </td>
+          <td>
+            <?php echo $data_penjualan['status_penjualan']; ?>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex flex-column justify-content-center my-2 col-5 mx-auto mt-5">
+      <?php if ($data_penjualan['status_penjualan'] != "Selesai"): ?>
+        <button class="py-3 text-white mb-2"
+          style="border:0; background-color:#0A0A33; border-radius: 10px;">Edit</button>
+        <button class="btn btn-danger py-3 mb-2 btn-tolak">Tolak</button>
+      <?php endif; ?>
+      <?php if ($data_penjualan['status_penjualan'] == "Belum Diproses"): ?>
+        <button class="btn btn-success py-3 mb-2 btn-ambil" onclick="ambilSekarang()">Ambil Sekarang</button>
+      <?php elseif ($data_penjualan['status_penjualan'] == "Diperjalanan"): ?>
+        <button class="btn btn-success py-3 mb-2 btn-selesai" onclick="tandaiSelesai()">Tandai Selesai</button>
+      <?php endif; ?>
     </div>
-  </div>
 
-  <!-- Bootstrap JS -->
+  </div>
+</div>
+<script src="../alert/sweetalert2.all.min.js"></script>
+<script src="../js/alert.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
