@@ -7,9 +7,27 @@ if (!isset($_SESSION['session_usernamepetugas'])) {
 }
 ?>
 <div class="container mt-5 pt-5">
+    <?php if (isset($_SESSION['kata_sandi_lama_salah'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill"></i> <strong>Gagal</strong>
+            <?php echo $_SESSION['kata_sandi_lama_salah'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php
+        unset($_SESSION['kata_sandi_lama_salah']);
+    endif;
+    ?>
+    <?php if (isset($_SESSION['update_berhasil'])): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle"></i> <strong>Berhasil</strong>
+            <?php echo $_SESSION['update_berhasil'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php
+        unset($_SESSION['update_berhasil']);
+    endif;
+    ?>
     <div class="d-flex flex-column align-items-center">
-
-        
         <div class="text-center">
             <img src="https://via.placeholder.com/150" alt="Foto Profil" class="img-fluid rounded-circle mb-3">
             <h2>
@@ -21,15 +39,15 @@ if (!isset($_SESSION['session_usernamepetugas'])) {
             </h6>
         </div>
         <div class="text-center mt-5 d-flex flex-column">
-            <a href="ubahprofil" class="btn mt-3" draggable="false"><i class="bi bi-key"></i> Ubah
+            <a href="ubahprofilpetugas" class="btn mt-3" draggable="false"><i class="bi bi-key"></i> Ubah
                 Profil</a>
-
             <a href="bantuan" class=" btn mt-2" draggable="false"><i class="bi bi-question-circle"></i> Bantuan</a>
 
 
 
-<!-- Tombol Logout -->
-            <a href="auth/logout.php" class="btn btn-danger text-white mt-5" draggable="false">Log
+            <!-- Tombol Logout -->
+            <a href="auth/logout.php" class="btn btn-danger text-white mt-5" onclick="konfirmasiLogout()"
+                draggable="false">Log
                 Out</a>
         </div>
     </div>

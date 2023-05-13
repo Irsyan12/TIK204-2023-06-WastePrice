@@ -3,7 +3,7 @@ session_start();
 include '../../auth/koneksi.php';
 $id_penjualan = $_GET['id_penjualan'];
 
-$newStatus = "Selesai";
+$newStatus = "Ditolak";
 
 // Query untuk mengubah nilai status_penjualan dan tanggal_selesai
 $query = "UPDATE tb_penjualan SET status_penjualan = '$newStatus', tanggal_selesai = NOW() WHERE id = $id_penjualan";

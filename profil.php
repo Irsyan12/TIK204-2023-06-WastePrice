@@ -17,7 +17,6 @@ if (!isset($_SESSION['session_username'])) {
             <?php
             unset($_SESSION['kata_sandi_lama_salah']);
         endif;
-        unset($_SESSION['kata_sandi_lama_salah']);
         ?>
         <?php if (isset($_SESSION['update_berhasil'])): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -28,7 +27,6 @@ if (!isset($_SESSION['session_username'])) {
             <?php
             unset($_SESSION['update_berhasil']);
         endif;
-        unset($_SESSION['kata_sandi_lama_salah']);
         ?>
         <div class="text-center">
             <img src="https://via.placeholder.com/150" alt="Foto Profil" class="img-fluid rounded-circle mb-3">
@@ -49,7 +47,7 @@ if (!isset($_SESSION['session_username'])) {
             <a href="sk" class="btn mt-2" draggable="false">Syarat dan Ketentuan</a>
 
 
-<!-- Tombol Logout -->
+            <!-- Tombol Logout -->
             <a href="#" class="btn btn-danger text-white mt-5" onclick="konfirmasiLogout()" draggable="false">Log
                 Out</a>
         </div>

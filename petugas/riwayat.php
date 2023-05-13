@@ -1,12 +1,11 @@
 <?php
 include '../auth/koneksi.php';
 include 'homeheader.php';
-$query = "SELECT * FROM tb_penjualan WHERE status_penjualan NOT IN ('Selesai', 'Ditolak') ORDER BY tanggal_penjualan DESC";
+$query = "SELECT * FROM tb_penjualan WHERE status_penjualan = 'Selesai' ORDER BY tanggal_penjualan DESC;";
 $result = mysqli_query($conn, $query);
 
-
 ?>
-<div class="container mt-5 pt-5">
+<div class="container mt-5 pt-5 mb-5">
     <div class="text-center mb-5">
         <h1>Daftar Pengambilan</h1>
     </div>
@@ -31,7 +30,9 @@ $result = mysqli_query($conn, $query);
                         <li class="ms-3" style="list-style-type: none;" >Penjual: ' . $username_masyarakat . '</li>
                         <li class="ms-3" style="list-style-type: none;">Alamat Penjemputan: ' . $data['alamat'] . '</li>
                         <li class="ms-3" style="list-style-type: none;">Deskripsi: ' . $data['deskripsi'] . '</li>
-                        <li class="ms-3" style="list-style-type: none;">Tanggal Penjualan: ' . date('d-m-Y', strtotime($data['tanggal_penjualan'])) . '</li>
+                        <li class="ms-3" style="list-style-type: none;">Tanggal Penjualan: ' . date('d-m-Y H:i:s', strtotime($data['tanggal_penjualan'])) . '</li>
+                        <li class="ms-3" style="list-style-type: none;">Tanggal Selesai: ' . date('d-m-Y', strtotime($data['tanggal_selesai'])) . '</li>
+                        <li class="ms-3" style="list-style-type: none;">Pukul: ' . date('H:i', strtotime($data['tanggal_selesai'])) . '</li>
                         <li class="ms-3" style="list-style-type: none;">Total Harga: Rp. ' . number_format($data['total_harga'], 0, ',', '.') . '</li>
                         <li class="ms-3" style="list-style-type: none;">Status Penjualan: ' . $data['status_penjualan'] . '</li>
                     </ul>
