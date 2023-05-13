@@ -1,40 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include 'homeheader.php';
+if (!isset($_SESSION['session_usernamepetugas'])) {
+  header('location:login');
+  exit();
+}
+?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ubah Profil</title>
-  <!-- Menghubungkan dengan file CSS Bootstrap -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
-</head>
+<div class="container mt-5 pt-5 ">
+  <h1 class="text-center my-3">Ubah Profil</h1>
+  <div class="d-flex justify-content-center">
 
-<body>
-  <div class="container mt-5">
-    <h2>Ubah Profil</h2>
-    <form>
-      <div class="mb-3">
+    <form method="POST" action="auth/ubah_profil_proses.php" id="form-ubah-profil">
+      <div class="form-group my-1 pt-4">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Masukkan username">
+        <input type="text" class="form-control" id="username" name="username_baru"
+          value="<?php echo $_SESSION['session_usernamepetugas']; ?>">
+        <p class="text-danger mt-1 d-none" id="username-allert">username sudah digunakan</p>
       </div>
-      <div class="mb-3">
-        <label for="phone" class="form-label">Nomor Telepon</label>
-        <input type="tel" class="form-control" id="phone" placeholder="Masukkan nomor telepon">
+
+      <div class="form-group mb-3 mt-3">
+        <label for="no_telp" class="form-label">Nomor Telepon</label>
+        <input type="tel" class="form-control mb-3" id="telephone" name="no_telepon"
+          value="<?php echo $_SESSION['session_no_telepon_petugas'] ?>">
       </div>
-      <div class="mb-3">
-        <label for="oldPassword" class="form-label">Kata Sandi Lama</label>
-        <input type="password" class="form-control" id="oldPassword" placeholder="Masukkan kata sandi lama">
+
+      <hr>
+
+      <div class="form-group mb-3 mt-3">
+        <label for="kata_sandi_lama" class="form-label">Kata Sandi Lama</label>
+        <input type="password" class="form-control" id="kata_sandi_lama" name="kata_sandi_lama">
+        <p class="text-danger mt-1 d-none" id="password-allert">Kata Sandi lama Salah!</p>
       </div>
-      <div class="mb-3">
-        <label for="newPassword" class="form-label">Kata Sandi Baru</label>
-        <input type="password" class="form-control" id="newPassword" placeholder="Masukkan kata sandi baru">
+      <div class="form-group mb-3">
+        <label for="kata_sandi_baru" class="form-label">Kata Sandi Baru</label>
+        <input type="password" class="form-control" id="kata_sandi_baru" name="kata_sandi_baru">
       </div>
-      <button type="submit" class="btn btn-primary">Simpan</button>
+      <div class="form-group mb-3">
+        <label for="ulang_kata_sandi_baru" class="form-label">
+        </label>
+      </div>
+      <button type="button" class="btn-submit mx-5 mt-2" onclick="ubahProfil()">Simpan</button>
     </form>
   </div>
-
-  <!-- Menghubungkan dengan file JavaScript Bootstrap -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+</div>
 </body>
+<script src="../js/alert.js"></script>
+<script src="../alert/sweetalert2.all.min.js"></script>
 
-</html>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4Yf"></script>
+<script>
+
+
+  <?php if (isset($_SESSION['username_sudah_dipakai'])):
+    ?>
+    const usernameAlert = document.getElementById('username-allert');
+    usernameAlert.classList.remove('d-none');
+    <?php
+    unset($_SESSION['username_sudah_dipakai']);
+  endif;
+  ?>
+
+  <?php if (isset($_SESSION['kata_sandi_lama_salah'])):
+    ?>
+    const passwordAlert = document.getElementById('password-allert');
+    passwordAlert.classList.remove('d-none');
+    <?php
+    unset($_SESSION['kata_sandi_lama_salah']);
+  endif;
+  ?>
+</script>

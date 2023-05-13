@@ -40,12 +40,10 @@ if ($username == "" or $password == "") {
                 // setcookie("cookie_password", "", time() - 3600, "/");
             }
             header("location: ../home");
-
         }
     } else {
         header("location: ../login.php");
         $_SESSION['login_gagal'] = 'Username dan password salah';
-        // header("location: ../login.php?pesan=error");
     }
 }
 ?>

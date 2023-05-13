@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $query);
             </ul>
             <form action="detailpenjualan" method="POST" class="d-flex flex-row-reverse text-decoration-none text-dark">
                 <input type="hidden" name="id_penjualan" value="' . $data["id"] . '">
-                <button type="submit" style="background: none; border: none;">Lihat Detail Penjualan</button>
+                <button class="px-3 py-1 text-white" type="submit" style="background: #0A0A33; border: none; border-radius: 8px;">Lihat Detail Penjualan</button>
             </form>
             </div>
             </div>';

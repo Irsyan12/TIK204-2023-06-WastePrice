@@ -81,9 +81,12 @@ $result = mysqli_query($conn, $query);
             </tbody>
         </table>
 
-        <div class="d-flex justify-content-center my-5 fixed-bottom">
-            <button class="btn btn-danger btn-hapusjual px-5 py-3">Batalkan Penjualan</button>
-        </div>
+        <?php if ($data_penjualan['status_penjualan'] != 'Selesai' && $data_penjualan['status_penjualan'] != 'Diperjalanan' && $data_penjualan['status_penjualan'] != 'Ditolak'): ?>
+            <div class="d-flex justify-content-center my-5 fixed-bottom">
+                <button class="btn btn-danger btn-hapusjual px-5 py-3">Batalkan Penjualan</button>
+            </div>
+        <?php endif; ?>
+
     </div>
 </div>
 <script src="alert/sweetalert2.all.min.js"></script>
@@ -106,7 +109,7 @@ $result = mysqli_query($conn, $query);
             showCancelButton: true,
             confirmButtonColor: '#dc3545',
             cancelButtonColor: '#6c757d',
-            confirmButtonText: 'Ya, hapus',
+            confirmButtonText: 'Ya, Batalkan',
             cancelButtonText: 'Batal'
         }).then((result) => {
             // jika user klik tombol "Ya, hapus"
@@ -114,7 +117,6 @@ $result = mysqli_query($conn, $query);
                 // Redirect ke halaman auth/batalJual.php dengan mengirimkan id_penjualan sebagai parameter
                 window.location.href = "auth/batalJual_proses?id_penjualan=<?php echo $id_penjualan; ?>";
             }
-
         });
     });
 

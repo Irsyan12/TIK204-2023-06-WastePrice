@@ -92,8 +92,6 @@ $result = mysqli_query($conn, $sql);
 
 
         });
-
-
     </script>
     <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
