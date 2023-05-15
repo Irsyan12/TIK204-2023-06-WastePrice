@@ -47,9 +47,9 @@ $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td class='item_sampah kategori'>" . $row["kategori_sampah"] . "</td>";
-                        echo "<td class='item_sampah jenis'>" . $row["jenis_sampah"] . "</td>";
-                        echo "<td class='item_sampah keterangan'>" . $row["keterangan"] . "</td>";
+                        echo "<td class='item_sampah kategori'>" . ucfirst($row["kategori_sampah"]) . "</td>";
+                        echo "<td class='item_sampah jenis'>" . ucfirst($row["jenis_sampah"]) . "</td>";
+                        echo "<td class='item_sampah keterangan'>" . ucfirst($row["keterangan"]) . "</td>";
                         echo "<td class='harga'>" . number_format($row["harga_sampah"], 0, ',', '.') . "</td>";
                         echo "</tr>";
                     }

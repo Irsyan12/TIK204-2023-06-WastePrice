@@ -42,7 +42,7 @@ $data_detail = mysqli_fetch_assoc($result_detail);
 
 
 <div class="container mt-5 pt-5">
-    <h1> <img src="asset/profile.svg" width="48.81"> Hai
+    <h1> <a href="profil"><img src="asset/profile.svg" width="48.81"></a> Hai
         <?php echo ucfirst($_SESSION['session_username']); ?>
     </h1>
     <hr>

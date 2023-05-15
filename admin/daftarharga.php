@@ -88,6 +88,14 @@ $no = 0;
 
 
     });
+
+    <?php if (isset($_SESSION['edit_harga_berhasil'])):
+        ?>
+        alert('Harga Sampah berhasil diperbarui');
+        <?php
+        unset($_SESSION['edit_harga_berhasil']);
+    endif;
+    ?>
 </script>
 
 </body>

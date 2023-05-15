@@ -21,9 +21,11 @@ if ($username == "" or $password == "") {
 
             $data = mysqli_fetch_assoc($query);
             $no_telp = $data['no_telepon'];
+            $id_petugas = $data['id_petugas'];
 
             // buat session nomor telepon
             $_SESSION['session_no_telepon_petugas'] = $no_telp;
+            $_SESSION['session_id_petugas'] = $id_petugas;
 
             if (isset($_POST['ingatsaya'])) {
                 $cookie_name = "cookie_username_petugas";
@@ -31,13 +33,8 @@ if ($username == "" or $password == "") {
                 $cookie_time = time() + (60 * 60 * 24 * 30);
                 setcookie($cookie_name, $cookie_value, $cookie_time, "/");
 
-                // $cookie_name = "cookie_password";
-                // $cookie_value = $password;
-                // $cookie_time = time() + (60 * 60 * 24 * 30);
-                // setcookie($cookie_name, $cookie_value, $cookie_time, "/");
             } else {
                 setcookie("cookie_username_petugas", "", time() - 3600, "/");
-                // setcookie("cookie_password", "", time() - 3600, "/");
             }
             header("location: ../home");
 

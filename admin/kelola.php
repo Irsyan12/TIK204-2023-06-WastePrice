@@ -6,13 +6,6 @@ include 'header.php';
 
 session_start();
 
-$id_sampah = '';
-$kategori_sampah = '';
-$jenis_sampah = '';
-$keterangan = '';
-$harga_sampah = '';
-
-
 if (isset($_GET['ubah'])) {
     $id_sampah = $_GET['ubah'];
 
@@ -33,7 +26,7 @@ if (isset($_GET['ubah'])) {
 }
 ?>
 <div class="container mt-5 pt-5">
-    <form method="POST" action="auth/proses.php" enctype="multipart/form-data" class="col-md-6 mx-auto">
+    <form method="POST" action="authAdmin/proses.php" enctype="multipart/form-data" class="col-md-6 mx-auto">
         <input type="hidden" value="<?php echo $id_sampah; ?>" name="id_sampah">
         <div class="mb-3 row">
             <label for="kategori_sampah" class="col-sm-2 col-form-label">Kategori Sampah</label>
@@ -70,7 +63,7 @@ if (isset($_GET['ubah'])) {
 
         <div class="mb3 row">
             <div class="col">
-                <button class="px-3 py-2 text-white border-0" type="submit"
+                <button class="px-3 py-2 text-white border-0" type="submit" name="sampah" value="edit"
                     style="background: #0A0A33; border-radius: 8px;"><i class="bi bi-file-earmark-plus"></i> Simpan
                     Perubahan</button>
                 <a href="daftarharga" type="button" class="btn btn-danger"><i class="bi bi-reply-fill"></i>

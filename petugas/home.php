@@ -7,8 +7,10 @@ if (!isset($_SESSION['session_usernamepetugas'])) {
     exit();
 
 }
+$id_petugas = $_SESSION['session_id_petugas'];
+
 // Query untuk mendapatkan ID penjualan terakhir dari masyarakat
-$query_last_id = "SELECT MAX(id) AS last_id FROM tb_penjualan WHERE status_penjualan NOT IN ('Selesai', 'Ditolak') ORDER BY tanggal_penjualan DESC";
+$query_last_id = "SELECT MAX(id) AS last_id FROM tb_penjualan WHERE status_penjualan = 'Belum Diproses' OR status_penjualan = 'Diperjalanan' AND id_petugas = $id_petugas ORDER BY tanggal_penjualan DESC";
 $result_last_id = mysqli_query($conn, $query_last_id);
 $data_last_id = mysqli_fetch_assoc($result_last_id);
 $last_id = $data_last_id['last_id'];
@@ -34,7 +36,7 @@ if ($data_detail) {
 
 
 <div class="container mt-5 pt-5">
-    <h1> <img src="../asset/profile.svg" width="48.81"> Hai
+    <h1> <a href="profil"><img src="../asset/profile.svg" width="48.81"></a> Hai
         <?php echo ucfirst($_SESSION['session_usernamepetugas']); ?>
     </h1>
     <hr>
@@ -98,7 +100,9 @@ if ($data_detail) {
         </div>
     </div>
     <?php
-    $query_last_id_riwayat = "SELECT MAX(id) AS last_id FROM tb_penjualan WHERE status_penjualan = 'Selesai'";
+    $query_last_id_riwayat = "SELECT MAX(id) AS last_id FROM tb_penjualan WHERE (status_penjualan = 'Selesai' OR status_penjualan = 'Ditolak') AND id_petugas = $id_petugas ORDER BY tanggal_penjualan DESC";
+
+    $query = "SELECT MAX(id) AS last_id FROM tb_penjualan WHERE status_penjualan = 'Selesai' OR status_penjualan = 'Ditolak' ORDER BY tanggal_penjualan DESC";
     $result_last_id_riwayat = mysqli_query($conn, $query_last_id_riwayat);
     $data_last_id = mysqli_fetch_assoc($result_last_id_riwayat);
     $last_id = $data_last_id['last_id'];

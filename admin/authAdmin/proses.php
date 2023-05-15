@@ -31,12 +31,52 @@ if (isset($_POST['aksi'])) {
 
         if ($result) {
             $_SESSION['edit_berhasil'] = 'Data Berhasil diedit';
-            header("location: ../daftarpetugas.php");
+            header("location: ../daftarpetugas");
         } else {
             echo $result;
         }
     }
 }
+
+if (isset($_POST['sampah'])) {
+    if ($_POST['sampah'] == "edit") {
+        $id_sampah = $_POST['id_sampah'];
+        $harga = $_POST['harga_sampah'];
+
+        // Query untuk mendapatkan harga sebelum perubahan
+        $query_harga_sebelum = "SELECT jenis_sampah, harga_sampah FROM tb_sampah WHERE id_sampah = '$id_sampah'";
+        $result_harga_sebelum = mysqli_query($conn, $query_harga_sebelum);
+        $data_harga_sebelum = mysqli_fetch_assoc($result_harga_sebelum);
+        $harga_sebelum = $data_harga_sebelum['harga_sampah'];
+        $jenis_sampah = $data_harga_sebelum['jenis_sampah'];
+
+        // Periksa apakah ada perubahan harga
+        if ($harga != $harga_sebelum) {
+            $perubahan = $harga > $harga_sebelum ? 'naik' : 'turun';
+
+            $query = "UPDATE tb_sampah SET harga_sampah = '$harga' WHERE id_sampah = '$id_sampah'";
+            $result = mysqli_query($conn, $query);
+
+            if ($result) {
+                // Tambahkan pesan ke tb_notifikasi
+                $pesan = "Harga $jenis_sampah $perubahan menjadi Rp. " . number_format($harga, 0, ',', '.');
+                $query_notifikasi = "INSERT INTO tb_notifikasi (timestamp, pesan) VALUES (NOW(), '$pesan')";
+                mysqli_query($conn, $query_notifikasi);
+
+                $_SESSION['edit_harga_berhasil'] = 'Data berhasil diedit';
+                header("location: ../daftarharga");
+            } else {
+                echo $result;
+            }
+        } else {
+            // Tidak ada perubahan harga, tidak perlu menambahkan pesan notifikasi
+            header("location: ../daftarharga");
+        }
+
+
+    }
+}
+
 
 if (isset($_GET['hapus'])) {
 
@@ -54,7 +94,7 @@ if (isset($_GET['hapus'])) {
 
 
     if ($sql) {
-        header("location: ../daftarpetugas.php");
+        header("location: ../daftarpetugas");
 
     } else {
         echo $sql;
