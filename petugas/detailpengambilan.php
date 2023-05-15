@@ -29,7 +29,7 @@ $username_masyarakat = $data_masyarakat['username'];
       <thead class="thead-dark">
         <tr>
           <th>Jenis Sampah</th>
-          <th>Jumlah</th>
+          <th>Jumlah/kg</th>
           <th>Subtotal</th>
         </tr>
       </thead>
@@ -122,9 +122,10 @@ $username_masyarakat = $data_masyarakat['username'];
     </table>
 
     <div class="d-flex flex-column justify-content-center my-2 col-md-3 col-lg- mx-auto mt-5">
-      <?php if ($data_penjualan['status_penjualan'] != "Selesai"): ?>
-        <button class="py-3 text-white mb-2"
-          style="border:0; background-color:#0A0A33; border-radius: 10px;">Edit</button>
+      <?php if ($data_penjualan['status_penjualan'] != "Selesai" && $data_penjualan['status_penjualan'] != "Ditolak"): ?>
+        <a href="editpengambilansampah?id=<?php echo $data_penjualan['id'] ?>"
+          class="py-3 text-white mb-2 text-decoration-none text-center"
+          style="border:0; background-color:#0A0A33; border-radius: 10px;">Edit</a>
         <button class="btn btn-danger py-2 mb-2" onclick="tolakSekarang()">Tolak</button>
       <?php endif; ?>
       <?php if ($data_penjualan['status_penjualan'] == "Belum Diproses"): ?>

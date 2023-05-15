@@ -53,7 +53,6 @@ if (!isset($_SESSION['session_username'])) {
         </div>
     </div>
 </div>
-
 <!-- Menghubungkan JavaScript -->
 <script src="js/alert.js"></script>
 <script src="alert/sweetalert2.all.min.js"></script>

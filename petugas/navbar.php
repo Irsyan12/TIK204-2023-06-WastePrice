@@ -4,7 +4,7 @@
             <a href="home" class="nav-link mt-1"><i class="bi bi-house-door" style="font-size: 20px;"></i></a>
         </li>
         <li class="nav-item jual-sampah">
-            <a href="laporan" class="nav-link"><i class="bi bi-file-earmark-text"
+            <a href="laporantransaksi" class="nav-link"><i class="bi bi-file-earmark-text"
                     style="font-size: 20px;"></i><br>Laporan Transaksi</a>
         </li>
         <li class="nav-item">

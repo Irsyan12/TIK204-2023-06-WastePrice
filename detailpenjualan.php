@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $query);
             <thead class="thead-dark">
                 <tr>
                     <th>Jenis Sampah</th>
-                    <th>Jumlah</th>
+                    <th>Jumlah/Kg</th>
                     <th>Subtotal</th>
                 </tr>
             </thead>

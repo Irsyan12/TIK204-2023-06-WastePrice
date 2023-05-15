@@ -1,7 +1,15 @@
 <?php
+session_start();
+if (!isset($_SESSION['session_usernamepetugas'])) {
+    header('location:login');
+    exit();
+}
+
+$id_petugas = $_SESSION['session_id_petugas'];
+
 include '../auth/koneksi.php';
 include 'homeheader.php';
-$query = "SELECT * FROM tb_penjualan WHERE status_penjualan NOT IN ('Selesai', 'Ditolak') ORDER BY tanggal_penjualan DESC";
+$query = "SELECT * FROM tb_penjualan where status_penjualan = 'Belum Diproses' OR status_penjualan = 'Diperjalanan' AND id_petugas = $id_petugas ORDER BY tanggal_penjualan DESC";
 $result = mysqli_query($conn, $query);
 
 

@@ -52,6 +52,9 @@ if (!isset($_SESSION['session_usernamepetugas'])) {
         </div>
     </div>
 </div>
+<?php
+include 'navbar.php';
+?>
 
 <!-- Menghubungkan JavaScript -->
 <script src="js/alert.js"></script>
